@@ -3,6 +3,7 @@ import { ReactComponent as ListIcon } from './assets/img/list.svg';
 import { AddList } from './conponents/AddList/AddList';
 import DB from './assets/db.json';
 import { useState } from 'react';
+import { Tasks } from './conponents/Tasks/Tasks';
 
 function App() {
   const [lists, setLists] = useState(
@@ -35,6 +36,9 @@ function App() {
         <List
           items={lists}
           isRemovable
+          onRemove={() => {
+            alert('hey');
+          }}
         />
         <AddList
           onAdd={onAddList}
@@ -43,7 +47,9 @@ function App() {
 
         <button>Hello</button>
       </div>
-      <div className='todo__tasks'></div>
+      <div className='todo__tasks'>
+        <Tasks />
+      </div>
     </div>
   );
 }

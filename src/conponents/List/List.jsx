@@ -1,10 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
-
-import './List.scss';
+import { ReactComponent as RemoveIcon } from '../../assets/img/remove.svg';
 import { Badge } from '../Badge/Badge';
 
-export const List = ({ items, isRemovable, onClick }) => {
+import './List.scss';
+
+export const List = ({ items, isRemovable, onClick, onRemove }) => {
+  const removeList = (item) => {
+    if (window.confirm('Вы действительно хотите удалить список?')) {
+      onRemove(item);
+    }
+  };
   return (
     <ul
       className='list'
@@ -17,6 +23,12 @@ export const List = ({ items, isRemovable, onClick }) => {
         >
           <i>{item.icon ? item.icon : <Badge color={item.color} />}</i>
           <span>{item.name}</span>
+          {isRemovable && (
+            <RemoveIcon
+              className='list__remove-icon'
+              onClick={() => removeList(item)}
+            />
+          )}
         </li>
       ))}
     </ul>
