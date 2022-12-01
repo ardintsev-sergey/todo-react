@@ -4,6 +4,7 @@
 
   &__add-button {
     opacity: 0.4;
+    transition: opacity 0.3s ease-in-out;
 
     &:hover {
       opacity: 1;
@@ -26,6 +27,7 @@
 
     #{$self}__remove-icon {
       opacity: 0;
+      transition: opacity 0.3s ease-in-out;
 
       &:hover {
         opacity: 0.8;

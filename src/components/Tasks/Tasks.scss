@@ -49,9 +49,11 @@
       height: 20px;
       width: 20px;
       cursor: pointer;
+      transition: background 0.3s ease-in-out;
     }
 
     svg {
+      transition: opacity 0.3s ease-in-out;
       opacity: 0;
     }
 
@@ -72,6 +74,11 @@
     &-row {
       display: flex;
       align-items: center;
+      margin-bottom: 15px;
+    }
+    input {
+      border: none;
+      font-size: 16px;
     }
   }
 }

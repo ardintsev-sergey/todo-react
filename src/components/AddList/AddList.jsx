@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
-import { List } from '../List/List';
+import React, { useEffect, useState } from 'react';
+// import { List } from '../List/List';
 import { ReactComponent as AddIcon } from '../../assets/img/add.svg';
 import { ReactComponent as CloseIcon } from '../../assets/img/close.svg';
+import axios from 'axios';
 
 import './AddList.scss';
-import { Badge } from '../Badge/Badge';
+// import { List } from '../List/List';
+// import { Badge, List } from '..';
+import { List, Badge } from '../';
 
 export const AddList = ({ colors, onAdd }) => {
   const [visible, setVisible] = useState(false);
-  const [selectedColor, setSelectedColor] = useState(colors[0].id);
+  const [selectedColor, setSelectedColor] = useState(3);
+  const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState('');
   console.log(selectedColor);
+
+  useEffect(() => {
+    if (Array.isArray(colors)) {
+      setSelectedColor(colors[0].id);
+    }
+    console.log(colors);
+  }, []);
 
   const onClose = () => {
     setVisible(false);
@@ -23,12 +34,22 @@ export const AddList = ({ colors, onAdd }) => {
       alert('Введите название списка');
       return;
     }
-    onAdd({
-      id: Math.random(),
-      name: inputValue,
-      color: colors.filter((c) => c.id === selectedColor)[0].name,
-    });
-    onClose();
+    setIsLoading(true);
+    axios
+      .post('http://localhost:3001/lists', {
+        name: inputValue,
+        colorId: selectedColor,
+      })
+      .then(({ data }) => {
+        const color = colors.filter((c) => c.id === selectedColor)[0].name;
+        const listObj = { ...data, color: { name: color } };
+        console.log(data);
+        onAdd(listObj);
+        onClose();
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -70,7 +91,7 @@ export const AddList = ({ colors, onAdd }) => {
             className='btn'
             onClick={addList}
           >
-            Добавить
+            {isLoading ? 'Добавление...' : 'Добавить'}
           </button>
         </div>
       )}
