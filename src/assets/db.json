@@ -34,6 +34,11 @@
       "name": "Курс по ReactJS ToDo",
       "colorId": 7,
       "id": 7
+    },
+    {
+      "name": "смч",
+      "colorId": 5,
+      "id": 8
     }
   ],
   "tasks": [
@@ -120,6 +125,42 @@
       "text": "Сделали удаление и редактирование задач и списков",
       "completed": true,
       "id": 17
+    },
+    {
+      "listId": 2,
+      "text": "test",
+      "complete": false,
+      "id": 18
+    },
+    {
+      "listId": 4,
+      "text": "прочесть 1984",
+      "complete": false,
+      "id": 19
+    },
+    {
+      "listId": 4,
+      "text": "",
+      "complete": false,
+      "id": 20
+    },
+    {
+      "listId": 4,
+      "text": "",
+      "complete": false,
+      "id": 21
+    },
+    {
+      "listId": 4,
+      "text": "",
+      "complete": false,
+      "id": 22
+    },
+    {
+      "listId": 4,
+      "text": "удалить пустые",
+      "complete": false,
+      "id": 23
     }
   ],
   "colors": [
