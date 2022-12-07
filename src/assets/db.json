@@ -58,7 +58,7 @@
       "id": 3,
       "listId": 2,
       "text": "ReactJS Hooks (useState, useReducer, useEffect и т.д.)",
-      "completed": true
+      "completed": false
     },
     {
       "id": 4,
@@ -69,7 +69,7 @@
     {
       "listId": 2,
       "text": "123",
-      "completed": true,
+      "completed": false,
       "id": 5
     },
     {
@@ -104,8 +104,8 @@
     },
     {
       "listId": 2,
-      "text": "222",
-      "completed": true,
+      "text": "222авыа",
+      "completed": false,
       "id": 12
     },
     {
@@ -140,27 +140,15 @@
     },
     {
       "listId": 4,
-      "text": "",
-      "complete": false,
-      "id": 20
-    },
-    {
-      "listId": 4,
-      "text": "",
-      "complete": false,
-      "id": 21
-    },
-    {
-      "listId": 4,
-      "text": "",
-      "complete": false,
-      "id": 22
-    },
-    {
-      "listId": 4,
-      "text": "удалить пустые",
+      "text": "удалить пустые задачи",
       "complete": false,
       "id": 23
+    },
+    {
+      "listId": 5,
+      "text": "ахаха",
+      "complete": false,
+      "id": 24
     }
   ],
   "colors": [

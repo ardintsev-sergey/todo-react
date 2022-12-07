@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-// import { List } from '../List/List';
 import { ReactComponent as AddIcon } from '../../assets/img/add.svg';
 import { ReactComponent as CloseIcon } from '../../assets/img/close.svg';
 import axios from 'axios';
 
 import './AddList.scss';
-// import { List } from '../List/List';
-// import { Badge, List } from '..';
 import { List, Badge } from '../';
 
 export const AddList = ({ colors, onAdd }) => {
@@ -14,14 +11,12 @@ export const AddList = ({ colors, onAdd }) => {
   const [selectedColor, setSelectedColor] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  console.log(selectedColor);
 
   useEffect(() => {
     if (Array.isArray(colors)) {
       setSelectedColor(colors[0].id);
     }
-    console.log(colors);
-  }, []);
+  }, [colors]);
 
   const onClose = () => {
     setVisible(false);
@@ -41,8 +36,8 @@ export const AddList = ({ colors, onAdd }) => {
         colorId: selectedColor,
       })
       .then(({ data }) => {
-        const color = colors.filter((c) => c.id === selectedColor)[0].name;
-        const listObj = { ...data, color: { name: color } };
+        const color = colors.filter((c) => c.id === selectedColor)[0];
+        const listObj = { ...data, color, tasks: [] };
         console.log(data);
         onAdd(listObj);
         onClose();
